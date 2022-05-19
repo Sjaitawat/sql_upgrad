@@ -1,0 +1,27 @@
+CREATE SCHEMA `fsd`
+ ;
+CREATE TABLE `fsd`.`transactions` (
+  `check_no` VARCHAR(45) NOT NULL,
+  `company_id` VARCHAR(45) NOT NULL,
+  `date` DATE NOT NULL,
+  `amount` INT NOT NULL,
+  PRIMARY KEY (`check_no`));
+use fsd;
+  insert into transactions values('SBI1234','B','2020-01-18',19877);
+insert into transactions values('AXIS2476','D','2020-05-25',20876);
+insert into transactions values('HDFC7612','B','2020-09-9',45261);
+insert into transactions values('ICICI1010','E','2020-12-12',10298);
+
+CREATE TABLE `fsd`.`company` (
+  `company_id` CHAR NOT NULL,
+  `company_name` VARCHAR(45) NOT NULL);
+
+insert into company values('A','Hyundai');
+insert into company values('B','Toyota');
+insert into company values('C','Tata');
+insert into company values('E','Ford');
+insert into company values('F','Maruti');
+
+select * from transactions inner join company On transactions.company_id=company.company_id;
+
+
